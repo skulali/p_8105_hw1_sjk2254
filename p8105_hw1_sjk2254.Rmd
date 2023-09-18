@@ -1,0 +1,55 @@
+---
+title: "p8105_hw1_sjk2254"
+output: github_document
+author: "Sharon Kulali
+date: "2023-09-18"
+---
+
+# Problem 1
+
+loading the needed packages
+
+```{r setup, include=FALSE}
+library(moderndive)
+library(tidyverse)
+data(early_january_weather)
+```
+
+assessing the dataset help file
+
+```{r}
+?early_january_weather
+```
+
+```{r}
+nrow(early_january_weather)
+```
+
+```{r}
+ncol(early_january_weather)
+```
+
+Information about the dataset: The s``
+
+extracting the needed data drom table
+
+```{r}
+temp = early_january_weather$temp
+time_hour = early_january_weather$time_hour
+```
+
+creating the scatterplot
+
+```{r}
+plot_df =
+  tibble(
+    x = time_hour,
+    y = temp
+  )
+```
+
+```{r}
+ggplot(data = early_january_weather, aes(x = time_hour, y = temp, color = humid))+
+  geom_point()
+```
+
