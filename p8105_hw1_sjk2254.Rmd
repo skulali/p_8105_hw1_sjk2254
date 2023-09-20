@@ -48,3 +48,44 @@ saving the scatterplot
 ggsave("scatter_plot_p1.pdf", height = 4, width = 6)
 ```
 
+# Problem #2
+
+```{r}
+p2_df = tibble(
+     num_samp = rnorm(10),
+     log_vec = num_samp > 0,
+     chr_vec = c("female","female","unisex","unisex","male","male","female","male","unisex","female"),
+     fct_vec = factor(chr_vec)
+)
+```
+
+```{r}
+m_num_samp = mean(pull(p2_df, num_samp))
+```
+
+```{r}
+m_log_vec = mean(pull(p2_df, log_vec))
+```
+
+```{r}
+m_chr_vec = mean(pull(p2_df, chr_vec))
+```
+
+```{r}
+m_fct_vec = mean(pull(p2_df, fct_vec))
+```
+
+the character and factor vectors didn't work
+
+```{r}
+an_log_vec = as.numeric(pull(p2_df,log_vec))
+mean(an_log_vec)
+
+an_chr_vec = as.numeric(pull(p2_df,chr_vec))
+mean(an_chr_vec)
+
+an_fct_vec = as.numeric(pull(p2_df,fct_vec))
+mean(an_fct_vec)
+```
+
+because are stored are stored as integers while characters are stored as words
